@@ -1,0 +1,25 @@
+!#/bin/bash
+
+apt-get update 
+
+apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+   apt-transport-https
+
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+apt update
+
+ #List the available versions:
+echo "To list available versions run:  apt-cache madison docker-ce | awk '{ print $3 }'  \n To Set VERSION_STRING=v_number"
+
+#VERSION_STRING=18.06.3~ce~3-0~ubuntu
+#sudo apt-get install docker-ce=$VERSION_STRING containerd.io docker-compose-plugin
