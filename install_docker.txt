@@ -1,13 +1,8 @@
 !#/bin/bash
 
-apt-get update 
+apt update 
 
-apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release \
-   apt-transport-https
+apt install ca-certificates && apt install curl && apt install gnupg && apt install lsb-release && apt install apt-transport-https
 
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
