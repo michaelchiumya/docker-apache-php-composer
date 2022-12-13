@@ -9,13 +9,13 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
 	apt-get install -y apache2 \
 	libapache2-mod-php8 \
-	php5-mysql \
-	php5-gd \
+	php8-mysql \
+	php8-gd \
 	php-pear \
 	php-apc \
-	php5-mcrypt \
-	php5-json \
-	php5-curl \
+	php8-mcrypt \
+	php8-json \
+	php8-curl \
 	curl lynx-cur \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& apt-get clean -y
