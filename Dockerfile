@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER Spiral Out <spiralout.eu@gmail.com>
+MAINTAINER Michael Chiumya <michaelchiumya@gmail.com>
 
 # disable interactive functions. 
 ENV DEBIAN_FRONTEND noninteractive
@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install apache, php and supplimentary programs. also remove the list from the apt-get update at the end ;-)
 RUN apt-get update && \
 	apt-get install -y apache2 \
-	libapache2-mod-php5 \
+	libapache2-mod-php8 \
 	php5-mysql \
 	php5-gd \
 	php-pear \
@@ -23,7 +23,7 @@ RUN apt-get update && \
 RUN cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 # Enable apache mods.
-RUN a2enmod php5
+RUN a2enmod php8
 RUN a2enmod rewrite
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
